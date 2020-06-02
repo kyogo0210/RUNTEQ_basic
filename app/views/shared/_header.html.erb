@@ -16,24 +16,24 @@
           </a>
 
           <div class='dropdown-menu dropdown-menu-right'>
-            <a class='dropdown-item' href='#'>掲示板一覧</a>
-            <a class='dropdown-item' href='#'>掲示板作成</a>
+            <%= link_to '掲示板一覧', '/boards', class:'dropdown-item'%>
+            <%= link_to '掲示板作成', '/boards/new', class:'dropdown-item'%>
           </div>
         </li>
 
         <li class='nav-item'>
-          <a class='nav-link' href='#'>ブックマーク一覧</a>
+          <%= link_to 'ブックマーク一覧', '#', class: 'nav-link' %>
         </li>
 
         <li class='nav-item dropdown dropdown-slide'>
           <a href='#' class='nav-link' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' id='header-profile'>
-            <%= image_tag 'sample.jpg', :size => '40x40' %>
+            <%= image_tag 'sample', size: '40x40', class: 'rounded-circle mr15' %>
           </a>
           <div class='dropdown-menu dropdown-menu-right'>
             <div class='dropdown-item'>らんてっく たろう</div>
             <div class='dropdown-divider'></div>
-            <a class='dropdown-item' href='#'>プロフィール</a>
-            <a class='dropdown-item' href='#'>ログアウト</a>
+              <%= link_to 'プロフィール','#',class:'dropdown-item'%>
+              <%= link_to 'ログアウト','#',class: 'dropdown-item'%>
           </div>
         </li>
       </ul>
