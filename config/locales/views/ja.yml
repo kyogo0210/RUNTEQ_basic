@@ -1,0 +1,16 @@
+ja:
+  users:
+    new:
+      title: 'ユーザー登録'
+      login_page: 'ログインページへ'
+      id: ID
+      first_name: 名前
+      last_name: 性
+      email: メールアドレス
+      crypted_password: パスワード
+  user_sessions:
+    new:
+      title: 'ログイン'
+      new_user_page: '登録ページへ'
+      email: 'メールアドレス'
+      crypted_password: 'パスワード'
