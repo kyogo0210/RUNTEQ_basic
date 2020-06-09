@@ -5,7 +5,7 @@ ja:
       login_page: 'ログインページへ'
       id: 'ID'
       first_name: '名前'
-      last_name: '性'
+      last_name: '姓'
       email: 'メールアドレス'
       crypted_password: 'パスワード'
   user_sessions:
