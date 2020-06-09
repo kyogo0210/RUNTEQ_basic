@@ -8,7 +8,7 @@ ja:
         last_name: '姓'
         email: 'メールアドレス'
         password: 'パスワード'
-        password_confirmation: '確認用パスワード'
+        password_confirmation: 'パスワード確認'
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
