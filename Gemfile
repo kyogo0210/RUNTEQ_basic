@@ -11,6 +11,7 @@ gem 'font-awesome-rails'
 gem 'sorcery'
 gem 'pry-byebug'
 gem 'rails-i18n', '~> 5.1'
+gem 'draper'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server

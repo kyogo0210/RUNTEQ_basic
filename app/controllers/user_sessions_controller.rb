@@ -3,7 +3,7 @@ class UserSessionsController < ApplicationController
   def new; end
 
   def create
-    @user = login(params[:email], params[:password])
+    @user = login(params[:email], params[:password]).decorate
     if @user
       flash[:success] = 'ログインしました'
       redirect_back_or_to root_url
