@@ -8,14 +8,14 @@ class UserSessionsController < ApplicationController
       flash[:success] = 'ログインしました'
       redirect_back_or_to root_url
     else
-      flash.now[:danger] = 'ログインできませんでした'
+      flash.now[:danger] = 'ログインに失敗しました'
       render 'new'
     end
   end
 
   def destroy
     logout
-    flash[:danger] = 'ログアウトしました'
+    flash[:success] = 'ログアウトしました'
     redirect_to root_url
   end
 end
