@@ -19,8 +19,9 @@ RSpec.describe '共通系', type: :system do
   end
 
   context 'ログイン後' do
+    let(:user) { create(:user) }
     before do
-      login_as_general
+      login_as_user(user)
       visit root_path
     end
     describe 'ヘッダー' do
@@ -33,6 +34,7 @@ RSpec.describe '共通系', type: :system do
         expect(page).to have_content('ブックマーク一覧'), 'ヘッダーに「ブックマーク一覧」というテキストが表示されていません'
 
         find('#header-profile').click
+        expect(page).to have_content("#{user.last_name} #{user.first_name}"), 'ヘッダーに「姓 名」が表示されていません'
         expect(page).to have_content('プロフィール'), 'ヘッダーに「プロフィール」というテキストが表示されていません'
         expect(page).to have_content('ログアウト'), 'ヘッダーに「ログアウト」というテキストが表示されていません'
       end
