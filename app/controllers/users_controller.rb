@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to login_url
     else
-      flash[:danger] = '登録失敗'
+      flash.now[:danger] = '登録失敗'
       render 'new'
     end
   end

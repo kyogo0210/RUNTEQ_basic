@@ -4,7 +4,7 @@
       <h1><%= t '.title' %></h1>
       <%= form_with url: login_path,data: { remote: false } do |f| %>
         <%= f.label (t '.email') %>
-        <%= f.text_field :email, class:'form-control' %>
+        <%= f.email_field :email, class:'form-control' %>
 
         <%= f.label (t '.crypted_password') %>
         <%= f.password_field :password, class:'form-control' %>
