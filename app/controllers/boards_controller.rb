@@ -21,6 +21,6 @@ class BoardsController < ApplicationController
 
   def require_login
     redirect_to login_url unless logged_in?
-      flash[:danger] = 'ログインしてください'
+    flash[:danger] = 'ログインしてください'
   end
 end
