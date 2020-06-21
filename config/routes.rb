@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/boards', to: 'boards#index'
   root 'static_pages#top'
   resources :users, only: %i[new create]
 
