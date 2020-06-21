@@ -10,17 +10,12 @@ class BoardsController < ApplicationController
   end
 
   def index
-    @boards = Board.includes(:user).all
+    @boards = Board.includes(:user).all.order(created_at: :desc)
   end
 
   private
 
   def board_params
     params.require(:board).permit(:title, :body)
-  end
-
-  def require_login
-    redirect_to login_url unless logged_in?
-    flash[:danger] = 'ログインしてください'
   end
 end
