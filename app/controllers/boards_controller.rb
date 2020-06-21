@@ -8,6 +8,7 @@ class BoardsController < ApplicationController
     @board.user_id = current_user.id
     @board.save
   end
+
   def index
     @boards = Board.includes(:user).all
   end
@@ -19,9 +20,7 @@ class BoardsController < ApplicationController
   end
 
   def require_login
-    unless logged_in?
-      flash[:danger] = "ログインしてください"
-      redirect_to login_url
-    end
+    redirect_to login_url unless logged_in?
+      flash[:danger] = 'ログインしてください'
   end
 end
