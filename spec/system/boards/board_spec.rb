@@ -43,5 +43,40 @@ RSpec.describe '掲示板', type: :system do
         end
       end
     end
+
+    describe '掲示板の作成' do
+      context 'ログインしていない場合' do
+        it 'ログインページにリダイレクトされること' do
+          visit new_board_path
+          expect(current_path).to eq login_path
+          expect(page).to have_content('ログインしてください'), 'フラッシュメッセージ「ログインしてください」が表示されていません'
+        end
+      end
+
+      context 'ログインしている場合' do
+        before do
+          login_as_general
+          click_on('掲示板')
+          click_on('掲示板作成')
+        end
+
+        it '掲示板が作成できること' do
+          fill_in 'タイトル', with: 'テストタイトル'
+          fill_in '本文', with: 'テスト本文'
+          click_button '登録する'
+          expect(current_path).to eq boards_path
+          expect(page).to have_content('掲示板を作成しました'), 'フラッシュメッセージ「掲示板を作成しました」が表示されていません'
+          expect(page).to have_content('テストタイトル'), '作成した掲示板のタイトルが表示されていません'
+          expect(page).to have_content('テスト本文'), '作成した掲示板の本文が表示されていません'
+        end
+
+        it '掲示板の作成に失敗すること' do
+          fill_in 'タイトル', with: 'テストタイトル'
+          click_button '登録する'
+          expect(page).to have_content('掲示板を作成できませんでした'), 'フラッシュメッセージ「掲示板を作成できませんでした」が表示されていません'
+          expect(page).to have_field('タイトル', with: 'テストタイトル'), '入力したタイトルがフォームに残っていません'
+        end
+      end
+    end
   end
 end

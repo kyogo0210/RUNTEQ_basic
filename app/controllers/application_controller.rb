@@ -3,8 +3,7 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def no_authenticated
-    flash[:danger] = 'ログインしてください'
-    redirect_to login_url
+  def not_authenticated
+    redirect_to login_url, danger: 'ログインしてください'
   end
 end
