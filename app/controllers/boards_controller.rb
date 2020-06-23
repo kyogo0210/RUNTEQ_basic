@@ -4,8 +4,7 @@ class BoardsController < ApplicationController
   end
 
   def create
-    @board = Board.new(board_params)
-    @board.user_id = current_user.id
+    @board = current_user.boards.build(board_params)
     if @board.save
       flash[:success] = '掲示板を作成しました'
       redirect_to boards_url
