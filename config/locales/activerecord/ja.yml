@@ -2,6 +2,7 @@ ja:
   activerecord:
     models:
       user: 'ユーザー'
+      board: '掲示板'
     attributes:
       user:
         first_name: '名'
@@ -9,6 +10,9 @@ ja:
         email: 'メールアドレス'
         password: 'パスワード'
         password_confirmation: 'パスワード確認'
+      board:
+        title: 'タイトル'
+        body: '本文'
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
@@ -153,6 +157,7 @@ ja:
       create: 登録する
       submit: ログイン
       update: 更新する
+      post: 投稿
   number:
     currency:
       format:

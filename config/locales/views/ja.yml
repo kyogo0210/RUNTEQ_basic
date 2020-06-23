@@ -14,3 +14,8 @@ ja:
       new_user_page: '登録ページへ'
       email: 'メールアドレス'
       crypted_password: 'パスワード'
+  boards:
+    new:
+      page_title: '掲示板作成'
+      title: 'タイトル'
+      body: '本文'

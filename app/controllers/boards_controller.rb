@@ -6,7 +6,13 @@ class BoardsController < ApplicationController
   def create
     @board = Board.new(board_params)
     @board.user_id = current_user.id
-    @board.save
+    if @board.save
+      flash[:success] = '掲示板を作成しました'
+      redirect_to boards_url
+    else
+      flash[:danger] = '掲示板を作成できませんでした'
+      render 'new'
+    end
   end
 
   def index
