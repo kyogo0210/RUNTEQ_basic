@@ -6,7 +6,7 @@ class BoardsController < ApplicationController
   def create
     @board = current_user.boards.build(board_params)
     if @board.save
-      flash[:success] = '掲示板を作成しました'
+      flash[:success] = '掲示板を作成が完了しました'
       redirect_to boards_url
     else
       flash[:danger] = '掲示板を作成できませんでした'
@@ -21,6 +21,6 @@ class BoardsController < ApplicationController
   private
 
   def board_params
-    params.require(:board).permit(:title, :body)
+    params.require(:board).permit(:title, :body, :board_image)
   end
 end

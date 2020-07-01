@@ -13,6 +13,7 @@ ja:
       board:
         title: 'タイトル'
         body: '本文'
+        board_image: 'サムネイル'
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

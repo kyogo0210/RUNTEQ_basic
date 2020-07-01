@@ -10,6 +10,30 @@
         <%= f.label :body %>
         <%= f.text_area :body,rows: 10, class: 'form-control' %>
 
+        <%= f.label :board_image %>
+        <%= f.file_field :board_image,id: :board_img, accept: 'image/jpg,image/jpeg,image/gif,image/png', class: 'form-control' %>
+        <% if @board.board_image.present? %>
+          <%= image_tag @board.board_image, id: :img_prev%>
+        <%else%>
+            <%= image_tag src='board_placeholder.png', id: :img_prev %>
+        <%end%>
+          <script type="text/javascript">
+            $(function() {
+              function readURL(input) {
+                if (input.files && input.files[0]) {
+                  var reader = new FileReader();
+                  reader.onload = function (e) {
+                    $('#img_prev').attr('src', e.target.result);
+                  }
+                  reader.readAsDataURL(input.files[0]);
+                }
+              }
+                $("#board_img").change(function(){
+                  readURL(this);
+                });
+              });
+          </script>
+        <br>
         <%= f.submit class:'btn btn-primary' %>
       <%end%>
     </div>
