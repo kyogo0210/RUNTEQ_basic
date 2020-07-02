@@ -63,6 +63,8 @@ RSpec.describe '掲示板', type: :system do
         it '掲示板が作成できること' do
           fill_in 'タイトル', with: 'テストタイトル'
           fill_in '本文', with: 'テスト本文'
+          file_path = Rails.root.join('spec', 'fixtures', 'example.jpg')
+          attach_file "サムネイル", file_path
           click_button '登録する'
           expect(current_path).to eq boards_path
           expect(page).to have_content('掲示板を作成しました'), 'フラッシュメッセージ「掲示板を作成しました」が表示されていません'
@@ -72,9 +74,13 @@ RSpec.describe '掲示板', type: :system do
 
         it '掲示板の作成に失敗すること' do
           fill_in 'タイトル', with: 'テストタイトル'
+          file_path = Rails.root.join('spec', 'fixtures', 'example.txt')
+          attach_file "サムネイル", file_path
           click_button '登録する'
           expect(page).to have_content('掲示板を作成できませんでした'), 'フラッシュメッセージ「掲示板を作成できませんでした」が表示されていません'
           expect(page).to have_field('タイトル', with: 'テストタイトル'), '入力したタイトルがフォームに残っていません'
+          expect(page).to have_content('本文を入力してください'), 'エラーメッセージ「本文を入力してください」が表示されていません'
+          expect(page).to have_content('サムネイルは jpg, jpeg, gif, pngの形式でアップロードしてください'), 'エラーメッセージ「サムネイルは jpg, jpeg, gif, pngの形式でアップロードしてください」が表示されていません'
         end
       end
     end

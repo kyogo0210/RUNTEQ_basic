@@ -1,0 +1,4 @@
+ja:
+  errors:
+    messages:
+      extension_whitelist_error: 'サムネイルは jpg, jpeg, gif, pngの形式でアップロードしてください'

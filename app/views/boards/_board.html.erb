@@ -4,7 +4,7 @@
         <% if board.board_image.present? %>
           <%= image_tag board.board_image.to_s, size:'300x200', class: "card-img-top" %>
         <%else%>
-            <%= image_tag src='board_placeholder.png', id: :img_prev %>
+          <%= image_tag src='board_placeholder.png', id: :img_prev %>
         <%end%>
       <div class="card-body">
         <h4 class="card-title">

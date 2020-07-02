@@ -22,6 +22,7 @@ RSpec.describe 'ユーザー登録', type: :system do
       fill_in 'メールアドレス', with: 'example@example.com'
       click_button '登録'
       expect(current_path).to eq '/users'
+      expect(page).to have_content '姓を入力してください'
       expect(page).to have_content('ユーザー登録に失敗しました'), 'フラッシュメッセージ「ユーザー登録に失敗しました」が表示されていません'
     end
   end

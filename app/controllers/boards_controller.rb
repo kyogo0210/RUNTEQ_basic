@@ -6,7 +6,7 @@ class BoardsController < ApplicationController
   def create
     @board = current_user.boards.build(board_params)
     if @board.save
-      flash[:success] = '掲示板を作成が完了しました'
+      flash[:success] = '掲示板を作成しました'
       redirect_to boards_url
     else
       flash[:danger] = '掲示板を作成できませんでした'
