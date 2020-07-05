@@ -11,29 +11,8 @@
         <%= f.text_area :body,rows: 10, class: 'form-control' %>
 
         <%= f.label :board_image %>
-        <%= f.file_field :board_image,id: :board_board_image, accept: 'image/jpg,image/jpeg,image/gif,image/png', class: 'form-control' %>
-        <% if @board.board_image.present? %>
-          <%= image_tag @board.board_image.to_s, id: :img_prev%>
-        <%else%>
-          <%= image_tag src='board_placeholder.png', id: :img_prev %>
-        <%end%>
-          <script type="text/javascript">
-            $(function() {
-              function readURL(input) {
-                if (input.files && input.files[0]) {
-                  var reader = new FileReader();
-                  reader.onload = function (e) {
-                    $('#img_prev').attr('src', e.target.result);
-                  }
-                  reader.readAsDataURL(input.files[0]);
-                }
-              }
-                $("#board_board_image").change(function(){
-                  readURL(this);
-                });
-              });
-          </script>
-        <br>
+        <%= f.file_field :board_image, onchange: 'previewImage()', accept: 'image/jpg,image/jpeg,image/gif,image/png', class: 'form-control' %>
+          <%= image_tag @board.board_image.url, id: 'preview', size: '300x200'%>
         <br>
         <%= f.submit class:'btn btn-primary' %>
       <%end%>
